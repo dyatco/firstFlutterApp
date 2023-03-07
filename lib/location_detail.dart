@@ -1,16 +1,21 @@
+// This is for the individual location detail
+import 'package:firstproject/mocks/mock_location.dart';
 import 'package:flutter/material.dart';
 import 'models/location.dart';
+import 'mocks/mock_location.dart';
 import 'styles.dart';
 
 class LocationDetail extends StatelessWidget{
   // parameter that gets passed to StatelessWidget. 'Location' from 'location.dart' model
-  final Location location;
+  final int locationID;
 
   // What gets passed to 'this.location' goes to 'location' above
-  LocationDetail(this.location);
+  LocationDetail(this.locationID);
 
   @override
   Widget build(BuildContext context){
+    var location = MockLocation.fetch(this.locationID);
+
     return Scaffold(
         appBar: AppBar(
           title: Text(location.name, style: Styles.navBarTitle)),

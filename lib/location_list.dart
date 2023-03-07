@@ -1,3 +1,4 @@
+// This is for the list of all locations
 import 'package:firstproject/location_detail.dart';
 import 'package:flutter/material.dart';
 import 'models/location.dart';
@@ -28,13 +29,13 @@ class LocationList extends StatelessWidget{
       contentPadding: EdgeInsets.all(10.0),
       leading: _itemThumbnail(this.locations[index]),
       title: _itemTitle(this.locations[index]),
-      onTap: () => _navigationToLocationDetail(context, location));;
+      onTap: () => _navigationToLocationDetail(context, index));;
   }
 
-  void _navigationToLocationDetail(BuildContext context, Location location){
+  void _navigationToLocationDetail(BuildContext context, int locationID){
     Navigator.push(context, MaterialPageRoute(
       builder: (context) => 
-        LocationDetail(location), 
+        LocationDetail(locationID), 
       ));
   }
 
